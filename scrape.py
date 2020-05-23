@@ -13,3 +13,17 @@ for i in range(20):
 urls = []
 for i in range(20):
     urls.append(headlines['articles'][i]['url'])
+
+descriptions = []
+for i in range(20):
+    descriptions.append(headlines['articles'][i]['description'])
+
+urlToImages = []
+for i in range(20):
+    urlToImages.append(headlines['articles'][i]['urlToImage'])
+
+publishedAts = []
+for i in range(20):
+    publishedAts.append(headlines['articles'][i]['publishedAt'])
+
+print(descriptions)
