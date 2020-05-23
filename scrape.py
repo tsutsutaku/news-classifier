@@ -6,5 +6,10 @@ headlines = newsapi.get_top_headlines(country='jp',
                                       category='technology')
                         
 
+titles = []
 for i in range(20):
-    print(headlines['articles'][i]['title'])
+   titles.append(headlines['articles'][i]['title'])
+
+urls = []
+for i in range(20):
+    urls.append(headlines['articles'][i]['url'])
