@@ -12,6 +12,7 @@ urls = []
 descriptions = []
 urlToImages = []
 publishedAts = []
+cates = []
 
 for category in categories:
 
@@ -41,16 +42,19 @@ for category in categories:
         temp = temp.replace('T', ' ')
         temp = temp.replace('Z', '')
         publishedAts.append(temp)
+    
+    for i in range(n_articles):
+        cates.append(category)
 
 n_data = len(titles)
 
 data = []
 
 for i in range(n_data):
-    temp = (titles[i], descriptions[i], publishedAts[i], urls[i], urlToImages[i])
+    temp = (titles[i], descriptions[i], cates[i], publishedAts[i], urls[i], urlToImages[i])
     data.append(temp)
 
-
+"""
 connection = MySQLdb.connect(
     host='localhost',
     user='tsutsutaku',
@@ -62,11 +66,13 @@ connection = MySQLdb.connect(
 
 cursor = connection.cursor()
 
-sql = 'insert into articles (title, description, publishedAt, link, linkToImage) values (%s, %s, %s, %s, %s)'
+sql = 'insert into articles (title, description, category, publishedAt, link, linkToImage) values (%s, %s, %s, %s, %s, %s)'
 
 cursor.executemany(sql, data)
 
 connection.commit()
 connection.close() 
+"""
 
+print(data[0])
 
