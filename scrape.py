@@ -44,31 +44,29 @@ for category in categories:
 
 n_data = len(titles)
 
-data = [[None]*5 for _ in range(n_data)]
+data = []
 
 for i in range(n_data):
-    data[i][0] = titles[i]
-    data[i][1] = descriptions[i]
-    data[i][2] = publishedAts[i]
-    data[i][3] = urls[i]
-    data[i][4] = urlToImages[i]
+    temp = (titles[i], descriptions[i], publishedAts[i], urls[i], urlToImages[i])
+    data.append(temp)
 
-"""
+
 connection = MySQLdb.connect(
     host='localhost',
-    user='root',
-    passwd='ルートのパスワード',
-    db='python_db',
+    user='tsutsutaku',
+    passwd='P0c0i224.',
+    db='news',
 # テーブル内部で日本語を扱うために追加
     charset='utf8'
 )
 
 cursor = connection.cursor()
 
-sql = 'insert into articles articles (title, description, publishedAt, link, linkToImage) values (?. ?, ?, ?, ?)'
-"""
+sql = 'insert into articles (title, description, publishedAt, link, linkToImage) values (%s, %s, %s, %s, %s)'
 
-print(data[0])
+cursor.executemany(sql, data)
 
+connection.commit()
+connection.close() 
 
 
