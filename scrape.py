@@ -42,16 +42,33 @@ for category in categories:
         temp = temp.replace('Z', '')
         publishedAts.append(temp)
 
+n_data = len(titles)
 
-print(len(titles), len(urls))
+data = [[None]*5 for _ in range(n_data)]
+
+for i in range(n_data):
+    data[i][0] = titles[i]
+    data[i][1] = descriptions[i]
+    data[i][2] = publishedAts[i]
+    data[i][3] = urls[i]
+    data[i][4] = urlToImages[i]
+
 """
 connection = MySQLdb.connect(
     host='localhost',
-    user='tsutsutaku',
-    passwd='P0c0i224.',
-    db='news',
+    user='root',
+    passwd='ルートのパスワード',
+    db='python_db',
 # テーブル内部で日本語を扱うために追加
     charset='utf8'
 )
+
 cursor = connection.cursor()
+
+sql = 'insert into articles articles (title, description, publishedAt, link, linkToImage) values (?. ?, ?, ?, ?)'
 """
+
+print(data[0])
+
+
+
