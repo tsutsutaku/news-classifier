@@ -54,7 +54,7 @@ for i in range(n_data):
     temp = (titles[i], descriptions[i], cates[i], publishedAts[i], urls[i], urlToImages[i])
     data.append(temp)
 
-"""
+
 connection = MySQLdb.connect(
     host='localhost',
     user='tsutsutaku',
@@ -71,8 +71,8 @@ sql = 'insert into articles (title, description, category, publishedAt, link, li
 cursor.executemany(sql, data)
 
 connection.commit()
-connection.close() 
-"""
+connection.close()
 
-print(data[0])
+
+
 
